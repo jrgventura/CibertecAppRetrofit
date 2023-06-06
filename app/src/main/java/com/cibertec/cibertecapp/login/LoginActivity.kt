@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.cibertec.cibertecapp.MainActivity
 import com.cibertec.cibertecapp.R
+import com.cibertec.cibertecapp.registrar.RegisterActivity
 import com.google.android.material.textfield.TextInputEditText
 
 class LoginActivity: AppCompatActivity() {
@@ -28,6 +29,12 @@ class LoginActivity: AppCompatActivity() {
             val pass = edtPass.text.toString()
             viewModel.login(email, pass)
         }
+
+        val btnOpenRegister = findViewById<Button>(R.id.btnOpenRegister)
+        btnOpenRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
         observablesViewModel()
     }
 
